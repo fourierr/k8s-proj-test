@@ -19,7 +19,11 @@ package main
 
 import (
 	"flag"
+	"fmt"
+	"k8s-proj-test/wait"
 	"os"
+	"strings"
+	"time"
 
 	// Import all Kubernetes client auth plugins (e.g. Azure, GCP, OIDC, etc.)
 	// to ensure that exec-entrypoint and run can make use of them.
@@ -65,6 +69,15 @@ CronJob controller's `SetupWithManager` method.
 */
 
 func main() {
+	stopCh := make(chan struct{})
+	wait.TestJitterUntil(stopCh)
+	time.Sleep(10 * time.Second)
+	close(stopCh)
+	time.Sleep(300 * time.Second)
+
+	s := "select aaa"
+	prefix := strings.HasPrefix(s, "select")
+	fmt.Println(prefix)
 	/*
 	 */
 	var metricsAddr string

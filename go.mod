@@ -13,6 +13,8 @@ require (
 	sigs.k8s.io/controller-runtime v0.11.2
 )
 
+replace github.com/jinzhu/gorm v1.9.16 => github.com/fourierr/gorm v1.9.17
+
 require (
 	cloud.google.com/go v0.93.3 // indirect
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
